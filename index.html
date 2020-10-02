@@ -31,17 +31,21 @@
                 if (Notification.permission !== "granted")
                     Notification.requestPermission();
                 else {
-                    var notifikasi = new Notification('Ini Judul Notifikasi', {
-                        icon: 'http://jagocoding.com/theme/New/img/logo.png',
-                        body: "Ini Body Pesan Notifikasi",
-                    });
-                    notifikasi.onclick = function () {
-                        window.open("https://example.com");      
-                    };
-                    setTimeout(function(){
-                        notifikasi.close();
-                    }, 5000);
+                	try {
+var notifikasi = new Notification('Ini Judul Notifikasi', {
+    icon: 'http://jagocoding.com/theme/New/img/logo.png',
+    body: "Ini Body Pesan Notifikasi",
+});
+notifikasi.onclick = function () {
+    window.open("https://example.com");      
+};
+setTimeout(function(){
+    notifikasi.close();
+}, 5000);
                 }
+                	} catch(e) {
+                		alert(e.message)
+                	}
             };
         </script>
     </body>
