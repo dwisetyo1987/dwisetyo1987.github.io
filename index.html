@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+        <button onclick='notifikasi()'>Klik</button>
+        <script>
+            document.addEventListener('readystatechange', event => {
+                if (event.target.readyState === 'complete') {
+                    //alert('hello')
+                    if (Notification.permission !== 'granted') {
+                        Notification.requestPermission()
+                    }
+                } else {
+                    setTimeout(() => {
+                        notifikasi()
+                    }, 5000)
+                }
+            })
+            function notifikasi() {
+                if (!Notification) {
+                    alert('Browsermu tidak mendukung Web Notification.'); 
+                    return;
+                }
+                if (Notification.permission !== "granted")
+                    Notification.requestPermission();
+                else {
+                    var notifikasi = new Notification('Gamis Suede Import', {
+                        icon: 'https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-0/cp0/e15/q65/p526x296/110317247_1621471968006484_3084038502214399851_n.jpg?_nc_cat=106&_nc_sid=478219&efg=eyJpIjoidCJ9&_nc_eui2=AeFb0u9LDS-49yX2E_pW0jh--0r1177Luzf7SvXXvsu7N9qJDL6nzG0bVo-FIJoeyqVrYVjVSv-4k2Q_C5pviyJV&_nc_ohc=Q69wfd9UokgAX8LDHRR&_nc_ht=scontent-sin6-1.xx&tp=3&oh=fc12f38df88a73e510e993c710bcea69&oe=5F9C0463',
+                        body: "COD + Free Ongkir Rp. 72.000",
+                    });
+                    notifikasi.onclick = function () {
+                        window.open("https://m.facebook.com/marketplace/item/2867703576668841/?search_query=inventory_management&mds=%2Fnt%2Fmodal%2F%3Fquery%3D%252Fmarketplace%252Fnt%252Fphoto%252F%253Fid%253D1621471964673151%26title%3DGamis%2520suede%2520impor%2520kualitas%2520sangat%2520bagus%2520dan%2520ORI&mdf=1");      
+                    };
+                    setTimeout(function(){
+                        notifikasi.close();
+                    }, 5000);
+                }
+            };
+        </script>
+    </body>
+</html>
