@@ -17,10 +17,10 @@
         <script>
             document.addEventListener('readystatechange', event => {
                 if (event.target.readyState === 'complete') {
-                    //alert('hello')
-                    if (Notification.permission !== 'granted') {
+                    alert('hello')
+                    /*if (Notification.permission !== 'granted') {
                         Notification.requestPermission()
-                    }
+                    }*/
                 }
             })
             function notifikasi() {
