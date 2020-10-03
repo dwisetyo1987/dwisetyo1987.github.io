@@ -1,8 +1,17 @@
 self.addEventListener("push", e => {
   const data = e.data.json();
   console.log("Push Recieved...");
-  self.registration.showNotification(data.title, {
-    body: data.body,
-    icon: data.icon
-  });
+  const options = {
+	  body: data.body,
+	  icon: data.icon
+  }
+  const notificationPromise = self.registration.showNotification(data.title, options);
+  e.waitUntil(notificationPromise);
+});
+
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  e.waitUntil(
+    clients.openWindow("https://example.com");
+  );
 });
