@@ -24,7 +24,7 @@ async function send() {
 
   // Send Push Notification
   console.log("Sending Push...");
-  await fetch("/subscribe", {
+  await fetch("https://goldenrod-flint-thimbleberry.glitch.me/subscribe", {
     method: "POST",
     body: JSON.stringify(subscription),
     headers: {
