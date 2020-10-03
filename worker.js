@@ -12,7 +12,6 @@ self.addEventListener("push", e => {
 });
 
 self.addEventListener('notificationclick', e => {
-	const data = e.data.json();
 	e.notification.close();
 	e.waitUntil(
 		clients.openWindow(openUrl)
