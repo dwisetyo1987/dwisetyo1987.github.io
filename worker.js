@@ -10,8 +10,9 @@ self.addEventListener("push", e => {
 });
 
 self.addEventListener('notificationclick', e => {
-  e.notification.close();
-  e.waitUntil(
-    clients.openWindow("https://example.com")
-  );
+	const data = e.data.json();
+	e.notification.close();
+	e.waitUntil(
+		clients.openWindow(data.url)
+	);
 });
