@@ -3,8 +3,9 @@ self.addEventListener("push", e => {
   const data = e.data.json();
   console.log("Push Recieved...");
   const options = {
-	  body: data.body,
-	  icon: data.icon
+	  icon: data.icon,
+	  image: data.image,
+	  body: data.body
   }
   openUrl = data.url;
   const notificationPromise = self.registration.showNotification(data.title, options);
