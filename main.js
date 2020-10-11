@@ -24,8 +24,7 @@ const grantPermission = () => {
 };
 
 const showNotification = data => {
-  const title = `Hello World! by dwisetyo1987`;
-
+  const title = `${data.message}`;
   new Notification(title);
 };
 
@@ -38,6 +37,7 @@ const showNotification = data => {
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
+      showNotification(data);
       showNotification(data.message);
       console.log(JSON.stringify(data));
       console.log(JSON.stringify(data.message));
