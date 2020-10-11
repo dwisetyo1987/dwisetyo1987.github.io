@@ -34,10 +34,15 @@ const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
   encrypted: true,
 });
 
-const channel = pusher.subscribe('github');
+const channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+
+/*const channel = pusher.subscribe('github');
 channel.bind('push', data => {
   showNotification(data.payload);
-});
+});*/
 
 const subscribe = document.getElementById('subscribe');
 subscribe.addEventListener('click', event => {
