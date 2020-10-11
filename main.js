@@ -28,23 +28,17 @@ const showNotification = data => {
   new Notification(title);
 };
 
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
 
-    var pusher = new Pusher('7c0c7a4697e657e7a1c0', {
-      cluster: 'ap1'
-    });
+const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
+  cluster: 'ap1'
+});
 
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      showNotification(data);
-      //showNotification(data.message);
-    });
-
-/*const channel = pusher.subscribe('github');
-channel.bind('push', data => {
-  showNotification(data.payload);
-});*/
+const channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function(data) {
+  showNotification(data);
+});
 
 const subscribe = document.getElementById('subscribe');
 subscribe.addEventListener('click', event => {
