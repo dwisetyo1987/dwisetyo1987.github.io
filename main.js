@@ -31,8 +31,8 @@ const showNotification = data => {
   new Notification(title);
 };
 
-const pusher = new Pusher('<your app key>', {
-  cluster: '<your app cluster>',
+const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
+  cluster: 'ap1',
   encrypted: true,
 });
 
