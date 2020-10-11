@@ -24,9 +24,7 @@ const grantPermission = () => {
 };
 
 const showNotification = data => {
-  const title = `${data.pusher.name} pushed to the ${
-    data.repository.name
-  } repo`;
+  const title = `Hello World! by dwisetyo1987@gmail.com`;
 
   new Notification(title);
 };
