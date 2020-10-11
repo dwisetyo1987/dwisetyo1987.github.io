@@ -24,7 +24,7 @@ const grantPermission = () => {
 };
 
 const showNotification = data => {
-  const title = `Hello World! by dwisetyo1987@gmail.com`;
+  const title = `Hello World! by dwisetyo1987`;
 
   new Notification(title);
 };
