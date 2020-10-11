@@ -38,7 +38,7 @@ const showNotification = data => {
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
+      alert(data.message);
     });
 
 /*const channel = pusher.subscribe('github');
