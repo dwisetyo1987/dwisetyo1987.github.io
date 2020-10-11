@@ -28,7 +28,7 @@ const showNotification = data => {
     data.repository.name
   } repo`;
 
-  new Notification('Hello World!');
+  new Notification(title);
 };
 
 const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
