@@ -23,13 +23,10 @@ const grantPermission = () => {
   }
 };
 
-const showNotification = data => {
-  const title = `${data.message}`;
+const showNotification = push => {
+  const title = push.message;
   new Notification(title);
 };
-
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
 
 const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
   cluster: 'ap1'
