@@ -23,18 +23,13 @@ const grantPermission = () => {
   }
 };
 
-const showNotification = push => {
-  const title = push.message;
-  new Notification(title);
-};
-
 const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
   cluster: 'ap1'
 });
 
 const channel = pusher.subscribe('my-channel');
 channel.bind('my-event', function(data) {
-  showNotification(data);
+  new Notification(data.message);
 });
 
 const subscribe = document.getElementById('subscribe');
