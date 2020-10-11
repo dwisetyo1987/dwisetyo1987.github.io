@@ -29,12 +29,14 @@ const showNotification = data => {
   new Notification(title);
 };
 
-const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
-  cluster: 'ap1',
-  encrypted: true,
-});
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
-const channel = pusher.subscribe('my-channel');
+    var pusher = new Pusher('7c0c7a4697e657e7a1c0', {
+      cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
       alert(JSON.stringify(data));
     });
