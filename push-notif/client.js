@@ -1,4 +1,4 @@
-const publicVapidKey = 'BAzIPriM8r4zOsTCld9_b2Tpi_Zd5jxWwPIxHuC8Dd6p12K08Lp4--eytQkOcgoJmGYB64aSgOQs97-HgF3YCfE';
+const publicVapidKey = 'BCxBj5PGs7ElYqs8_0-CwgpgJWhv9xohmVRiMrzIMlCeyPNEdEmPJRNuY5GDtztyaFhI-K-1TSULqEVJUBBvIv8';
 
 // Check for service worker
 if ("serviceWorker" in navigator) {
