@@ -1,9 +1,5 @@
 importScripts('/pusher.worker.min.js');
 
-Pusher.setLogger(function(log){
-  console.log(log)
-});
-
 var pusher = new Pusher('7c0c7a4697e657e7a1c0', {
   cluster: 'ap1',
   encrypted: true,
