@@ -1,16 +1,26 @@
-if (!('serviceWorker' in navigator)) {
-  throw("Service workers are not supported");
-}
+document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === 'interactive') {
+        if ("serviceWorker" in navigator) {
+            installServiceWorker().catch(err => console.error(err))
+        }
+    }
+})
 
-navigator.serviceWorker.register('sw.js').then(function(reg){
-  if(reg.installing) {
-    console.log('Service worker installing');
-  } else if(reg.waiting) {
-    console.log('Service worker installed');
-  } else if(reg.active) {
-    console.log('Service worker active');
-  }
-});
+async function installServiceWorker() {
+    console.log("Registering service worker...")
+    const register = await navigator.serviceWorker.register("/sw.js", {
+      scope: "/"
+    })
+    console.log("Service Worker Registered...")
+
+    const activated = new Promise((res, rej) => {
+        setTimeout(() => {
+            res(true)
+        }, 2000)
+    })
+    const activate = await activated
+    console.log("Service Worker Activated...")
+}
 
 const grantPermission = () => {
   if (!('Notification' in window)) {
