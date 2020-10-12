@@ -10,7 +10,7 @@ let channel = pusher.subscribe('my-channel');
 
 channel.bind('my-event', function(data) {
 	self.registration.showNotification(data.title, {
-		icon: 'https://avatars3.githubusercontent.com/u/739550?v=3&s=200',
+		icon: data.icon,
 		image: data.image,
 		body: data.message
 	});
