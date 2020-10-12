@@ -23,24 +23,6 @@ const grantPermission = () => {
   }
 };
 
-const showNotification = data => {
-  const title = `${data.pusher.name} pushed to the ${
-    data.repository.name
-  } repo`;
-
-  new Notification(title);
-};
-
-const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
-  cluster: 'ap1',
-  encrypted: true,
-});
-
-const channel = pusher.subscribe('github');
-channel.bind('push', data => {
-  showNotification(data.payload);
-});
-
 const subscribe = document.getElementById('subscribe');
 subscribe.addEventListener('click', event => {
   grantPermission();
