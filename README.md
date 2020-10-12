@@ -5,4 +5,4 @@
 * edit app key in env with your personal key
 ### Client Side
 * edit html as your wish
-* edit app key with your personal key
+* edit app key in sw.js with your personal key
