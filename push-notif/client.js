@@ -27,6 +27,7 @@ async function send() {
   await fetch("https://goldenrod-flint-thimbleberry.glitch.me/subscribe", {
     method: "POST",
     body: JSON.stringify(subscription),
+    message: 'hello from client',
     headers: {
       "content-type": "application/json"
     }
