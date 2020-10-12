@@ -10,7 +10,7 @@ let channel = pusher.subscribe('my-channel');
 
 channel.bind('my-event', function(data) {
 	self.registration.showNotification(data.title, {
-		icon: icon.jpg,
+		icon: 'icon.jpg',
 		image: data.image,
 		body: data.message
 	});
