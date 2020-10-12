@@ -13,14 +13,6 @@ async function send() {
     scope: "/push-notif/"
   });
   console.log("Service Worker Registered...");
-  
-  const activated = new Promise((res, rej) => {
-      setTimeout(() => {
-          res(true)
-      }, 2000)
-  })
-  const activate = await activated
-  console.log("Service Worker Activated...")
 
   // Register Push
   console.log("Registering Push...");
