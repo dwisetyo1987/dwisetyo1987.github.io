@@ -22,18 +22,3 @@ const grantPermission = () => {
     });
   }
 };
-
-const pusher = new Pusher('7c0c7a4697e657e7a1c0', {
-  cluster: 'ap1'
-});
-
-const channel = pusher.subscribe('my-channel');
-channel.bind('my-event', function(data) {
-  new Notification(data.message);
-});
-
-const subscribe = document.getElementById('subscribe');
-subscribe.addEventListener('click', event => {
-  grantPermission();
-  subscribe.parentNode.removeChild(subscribe);
-});
