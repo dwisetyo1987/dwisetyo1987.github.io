@@ -1,10 +1,20 @@
-console.log("Service Worker Loaded...");
-
+let openUrl = ""
 self.addEventListener("push", e => {
   const data = e.data.json();
   console.log("Push Recieved...");
-  self.registration.showNotification(data.title, {
-    body: "Notified by Traversy Media!",
-    icon: "http://image.ibb.co/frYOFd/tmlogo.png"
-  });
+  const options = {
+	  icon: data.icon,
+	  image: data.image,
+	  body: data.body
+  }
+  openUrl = data.url;
+  const notificationPromise = self.registration.showNotification(data.title, options);
+  e.waitUntil(notificationPromise);
+});
+
+self.addEventListener('notificationclick', e => {
+	e.notification.close();
+	e.waitUntil(
+		clients.openWindow(openUrl)
+	);
 });
