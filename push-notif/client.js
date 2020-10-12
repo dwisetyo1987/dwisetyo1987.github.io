@@ -1,5 +1,4 @@
-const publicVapidKey =
-  "BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo";
+const publicVapidKey = 'BAzIPriM8r4zOsTCld9_b2Tpi_Zd5jxWwPIxHuC8Dd6p12K08Lp4--eytQkOcgoJmGYB64aSgOQs97-HgF3YCfE';
 
 // Check for service worker
 if ("serviceWorker" in navigator) {
@@ -33,7 +32,7 @@ async function send() {
 
   // Send Push Notification
   console.log("Sending Push...");
-  await fetch("/subscribe", {
+  await fetch("https://goldenrod-flint-thimbleberry.glitch.me/subscribe", {
     method: "POST",
     body: JSON.stringify(subscription),
     headers: {
