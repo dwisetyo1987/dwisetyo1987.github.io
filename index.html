@@ -1,39 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Service Workers + Pusher</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Realtime Github Notifications</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-
-<h1>Service Worker Demo</h1>
-
-<script type="text/javascript">
-
-if (!('serviceWorker' in navigator)) {
-  throw("Service workers are not supported");
-}
-
-Notification.requestPermission();
-
-navigator.serviceWorker.register('sw.js').then(function(reg){
-  if(reg.installing) {
-    console.log('Service worker installing');
-  } else if(reg.waiting) {
-    console.log('Service worker installed');
-  } else if(reg.active) {
-    console.log('Service worker active');
-  }
-
-  if (!(reg.showNotification)) {
-    throw('Notifications aren\'t supported on service workers.');
-    return;
-  }
-
-  if (Notification.permission === 'denied') {
-    throw('The user has blocked notifications.');
-  }
-});
-
-</script>
-
+  <main class="app">
+    <header class="header">
+      <h1>Realtime Github Notifications</h1>
+    </header>
+    <div class="container">
+      <button class="subscribe" id="subscribe">Enable notifications</button>
+    </div>
+  </main>
+  <script src="main.js"></script>
 </body>
 </html>
