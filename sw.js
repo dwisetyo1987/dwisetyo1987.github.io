@@ -2,7 +2,7 @@ let openUrl = ""
 self.addEventListener("push", e => {
   const data = e.data.json();
   const options = {
-	  icon: data.icon,
+	  icon: "icon.jpg",
 	  image: data.image,
 	  body: data.body
   }
