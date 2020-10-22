@@ -1,8 +1,2 @@
-# Realtime Notifications
-## Usage
-### Server Side
-* add all package required
-* edit app key in env with your personal key
-### Client Side
-* edit html as your wish
-* edit app key in sw.js with your personal key
+# DinaWeb - Dinamik Website
+## by dwisetyo1987@gmail.com
